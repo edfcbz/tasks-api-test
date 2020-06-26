@@ -67,6 +67,7 @@ public class APITest {
 			.when()
 				.post("/todo")
 			.then()
+				.statusCode(400)
 				.body("message", is("Due date must not be in past"))
 			;
 	}	
