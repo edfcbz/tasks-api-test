@@ -53,6 +53,7 @@ public class APITest {
 				.post("/todo")
 			.then()
 				.body("message", is("Fill the task description"))
+				.statusCode(400)
 			;
 	}	
 	
