@@ -80,7 +80,8 @@ public class APITest {
 				.body("{\"task\":\"Task informada no corpo\"}")
 			.when()
 				.post("/todo")
-			.then()				
+			.then()		
+				.statusCode(400)
 				.body("message", is("Fill the due date"))
 			;
 	}	
