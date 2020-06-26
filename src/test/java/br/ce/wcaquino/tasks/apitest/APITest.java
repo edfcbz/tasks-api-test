@@ -81,7 +81,6 @@ public class APITest {
 			.when()
 				.post("/todo")
 			.then()		
-				.statusCode(400)
 				.body("message", is("Fill the due date"))
 			;
 	}	
