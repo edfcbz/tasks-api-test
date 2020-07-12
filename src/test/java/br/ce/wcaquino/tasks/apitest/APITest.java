@@ -14,7 +14,7 @@ public class APITest {
 
 	@BeforeClass
 	public static void setup() {
-		RestAssured.baseURI = "http://localhost:8001/tasks-backend";
+		RestAssured.baseURI = "http://192.168.99.100:8002/tasks-backend";
 	}
 	
 	
@@ -35,7 +35,7 @@ public class APITest {
 		RestAssured
 			.given()
 				.contentType(ContentType.JSON)
-				.body("{\"task\":\"Task informada no corpo\",\"dueDate\":\"2030-06-30\"}")
+				.body("{\"task\":\"API: Task informada no corpo\",\"dueDate\":\"2030-06-30\"}")
 			.when()
 				.post("/todo")
 			.then()
