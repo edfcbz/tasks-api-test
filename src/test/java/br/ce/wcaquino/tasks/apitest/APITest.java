@@ -17,7 +17,6 @@ public class APITest {
 		RestAssured.baseURI = "http://192.168.99.100:8002/tasks-backend";
 	}
 	
-	
 	@Test
 	public void deveRetornarOsDadosDoBackend() {
 		RestAssured
@@ -29,13 +28,12 @@ public class APITest {
 			;
 	}
 	
-	
 	@Test
 	public void deveAdicionarTarefasComSucesso() {
 		RestAssured
 			.given()
 				.contentType(ContentType.JSON)
-				.body("{\"task\":\"API: Task informada no corpo\",\"dueDate\":\"2030-06-30\"}")
+				.body("{\"task\":\"API: Task informada no corpo "+Math.random()+" \",\"dueDate\":\"2030-06-30\"}")
 			.when()
 				.post("/todo")
 			.then()
@@ -55,8 +53,7 @@ public class APITest {
 				.body("message", is("Fill the task description"))
 				.statusCode(400)
 			;
-	}	
-	
+	}
 	
 	@Test
 	public void naoDeveAdicionarTarefasComDataPassada() {
@@ -83,9 +80,7 @@ public class APITest {
 			.then()		
 				.body("message", is("Fill the due date"))
 			;
-	}	
-	
-	
+	}
 }
 
 
